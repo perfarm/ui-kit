@@ -1,0 +1,16 @@
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { MachineForm } from './index';
+
+export default {
+  title: 'Example/MachineForm',
+  component: MachineForm,
+} as ComponentMeta<typeof MachineForm>;
+
+const Template: ComponentStory<typeof MachineForm> = (args) => <MachineForm {...args} />;
+
+export const Primary = Template.bind({});
+
+Primary.args = {
+  label: 'MachineForm',
+};
