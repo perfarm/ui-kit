@@ -16,12 +16,12 @@
     "project": "tsconfig.json"
   },
   "plugins": ["react", "eslint-plugin-import-helpers"],
-  "ignorePatterns": [".husky", "dist"],
+  "ignorePatterns": [".husky", "dist", "scripts"],
   "rules": {
     "curly": ["error", "all"],
     "no-console": "error",
     "import-helpers/order-imports": [
-      "warn",
+      "error",
       {
         "groups": ["/^react/", "module", "/^~/", ["parent", "sibling", "index"]],
         "alphabetize": { "order": "asc", "ignoreCase": true }

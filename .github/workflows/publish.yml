@@ -22,4 +22,4 @@
 #         run: yarn
 
 #       - name: Run Custom Publish
-#         run: npm run custom-publish
+#         run: npm run custom:publish

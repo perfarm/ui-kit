@@ -7,6 +7,6 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
   moduleNameMapper: {
-    '^~/(.*)$': path.join(__dirname, 'src/$1'),
+    '^~/(.*)$': path.join(__dirname, 'src', '$1'),
   },
 };
