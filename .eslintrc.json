@@ -16,7 +16,7 @@
     "project": "tsconfig.json"
   },
   "plugins": ["react", "eslint-plugin-import-helpers"],
-  "ignorePatterns": [".husky", "dist", "scripts"],
+  "ignorePatterns": [".husky", "dist"],
   "rules": {
     "curly": ["error", "all"],
     "no-console": "error",

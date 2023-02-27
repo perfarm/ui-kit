@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { execSync } from 'child_process';
 
-execSync('ts-node-esm ./scripts/build.ts');
+execSync('yarn build');
 
 try {
   execSync('npm publish', { cwd: './dist' });

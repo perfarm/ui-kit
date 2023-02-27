@@ -15,7 +15,7 @@ export default {
       moduleDirectories: ['node_modules'],
     }),
     commonjs(),
-    typescript({ tsconfig: './tsconfig.json' }),
+    typescript({ tsconfig: './tsconfig.build.json' }),
   ],
   external: ['react', 'axios'],
 };
