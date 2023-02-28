@@ -11,4 +11,14 @@ module.exports = {
     };
     return config;
   },
+  previewHead: (head) => `
+    ${head}
+    <style>
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+    </style>
+  `,
 };
