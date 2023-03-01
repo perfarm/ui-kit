@@ -10,7 +10,7 @@
     "check:typescript": "tsc --noEmit",
     "lint:staged": "lint-staged",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 9009",
     "build:storybook": "build-storybook",
     "custom:publish": "ts-node-esm ./scripts/publish.ts"
   },
