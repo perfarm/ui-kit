@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MachineForm } from './index';
 
 export default {
-  title: 'Example/MachineForm',
+  title: 'Forms/MachineForm',
   component: MachineForm,
 } as ComponentMeta<typeof MachineForm>;
 

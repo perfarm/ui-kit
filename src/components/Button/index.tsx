@@ -1,30 +1,17 @@
-import React, { FC, useState, useEffect } from 'react';
-import { TextField } from '~/components/TextField';
-import { request, ResponseInterceptor } from '~/config/request';
+import React, { FC } from 'react';
 import { ButtonStyled } from './style';
-import { ButtonProps } from './types';
+import { Props } from './types';
 
-export const Button: FC<ButtonProps> = ({ label }) => {
-  const [data, setData] = useState('nada');
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await request.get<unknown, ResponseInterceptor<{ data: Array<{ first_name: string }> }>>(
-        'https://reqres.in/api/users?page=2'
-      );
-
-      setData(data.data[0].first_name);
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    getData();
-  }, []);
-
+export const Button: FC<Props> = ({ label, color, size, onClick, disabled, dataTestId }) => {
   return (
-    <ButtonStyled>
-      {data}
+    <ButtonStyled
+      color={color}
+      size={size}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      data-testid={dataTestId}
+    >
       {label}
-      <TextField />
     </ButtonStyled>
   );
 };
