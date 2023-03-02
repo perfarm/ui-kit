@@ -5,6 +5,10 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box',
   },
 
+  ':root': {
+    fontSize: '62.5%',
+  },
+
   body: {
     margin: 0,
     maxWidth: '100%',
