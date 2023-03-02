@@ -7,5 +7,5 @@ export interface Props {
   size: ButtonSize;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
-  dataTestId?: string;
+  id?: string;
 }

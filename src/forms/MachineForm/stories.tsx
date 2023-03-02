@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { MachineForm } from './index';
 
 export default {
-  title: 'Forms/MachineForm',
   component: MachineForm,
+  title: 'Forms/MachineForm',
 } as ComponentMeta<typeof MachineForm>;
 
 const Template: ComponentStory<typeof MachineForm> = (args) => <MachineForm {...args} />;

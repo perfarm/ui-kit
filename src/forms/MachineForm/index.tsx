@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
 import { MachineFormProps } from './types';
 
 export const MachineForm = ({ label }: MachineFormProps) => {
@@ -8,12 +10,12 @@ export const MachineForm = ({ label }: MachineFormProps) => {
     initialValues: {
       email: 'joao',
     },
-    validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
-    }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Required'),
+    }),
   });
 
   return (
