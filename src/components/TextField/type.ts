@@ -1,20 +1,20 @@
-import React from 'react';
+import { ChangeEventHandler } from 'react';
 
 export type InputSizes = 'small' | 'medium' | 'large';
 export type InputTypes = 'email' | 'password' | 'search' | 'tel' | 'text' | 'number' | 'url';
 export interface Props {
-  value: string | number;
-  name: string;
-  size?: InputSizes;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  icon?: string | JSX.Element;
-  label?: string;
+  className?: string;
+  disabled?: boolean;
   error?: boolean;
   errorText?: string;
-  type?: InputTypes;
+  icon?: string | JSX.Element;
+  label?: string;
   maxLength?: number;
+  name: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   required?: boolean;
-  disabled?: boolean;
-  className?: string;
+  size?: InputSizes;
+  type?: InputTypes;
+  value: string | number;
 }

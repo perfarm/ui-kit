@@ -1,49 +1,50 @@
 import { keyframes } from '@stitches/react';
+
 import { css, styled } from '~/config/theme';
 
 const variantFontSize = css({
+  defaultVariants: {
+    size: 'medium',
+  },
   variants: {
     size: {
-      small: {
-        fontSize: '$2',
+      large: {
+        fontSize: '$6',
       },
       medium: {
         fontSize: '$4',
       },
-      large: {
-        fontSize: '$6',
+      small: {
+        fontSize: '$2',
       },
     },
-  },
-  defaultVariants: {
-    size: 'medium',
   },
 });
 
 const variantPadding = css({
+  defaultVariants: {
+    size: 'medium',
+  },
   variants: {
     size: {
-      small: {
-        padding: '$2',
+      large: {
+        padding: '$4',
       },
       medium: {
         padding: '$3',
       },
-      large: {
-        padding: '$4',
+      small: {
+        padding: '$2',
       },
     },
-  },
-  defaultVariants: {
-    size: 'medium',
   },
 });
 
 export const Input = styled('input', variantFontSize, variantPadding, {
+  backgroundColor: 'transparent',
   border: 'none',
   flex: 1,
   outline: 'none',
-  backgroundColor: 'transparent',
 });
 export const Label = styled('label', {
   marginBottom: '$1',
@@ -52,23 +53,35 @@ export const Content = styled('div', {
   position: 'relative',
 });
 export const InputContent = styled('div', {
-  display: 'flex',
-  position: 'relative',
-  overflow: 'hidden',
-  backgroundColor: '$white',
-  borderRadius: '$1',
-  zIndex: 9,
-  justifyContent: 'space-between',
   alignItems: 'center',
+  backgroundColor: '$white',
   border: '1px solid $primary200',
+  borderRadius: '$1',
+  display: 'flex',
+  justifyContent: 'space-between',
   outline: '2px solid transparent',
+  overflow: 'hidden',
+  position: 'relative',
   transition: '$easeInOut02',
+  zIndex: 9,
 
   '&:hover, &:focus-within': {
     outlineColor: '$primary200',
   },
 
   variants: {
+    disabled: {
+      true: {
+        backgroundColor: '$gray200',
+        border: '1px solid $gray300',
+        cursor: 'not-allowed',
+        opacity: '0.9',
+
+        '&:hover,&:focus-within': {
+          outlineColor: 'transparent',
+        },
+      },
+    },
     error: {
       true: {
         border: '1px solid $error200',
@@ -78,64 +91,53 @@ export const InputContent = styled('div', {
         },
       },
     },
-    disabled: {
-      true: {
-        border: '1px solid $gray300',
-        cursor: 'not-allowed',
-        backgroundColor: '$gray200',
-        opacity: '0.9',
-        '&:hover,&:focus-within': {
-          outlineColor: 'transparent',
-        },
-      },
-    },
   },
 });
 export const Icon = styled('label', variantPadding, {
-  position: 'relative',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  padding: '$3',
   alignItems: 'center',
   color: '$gray600',
+  display: 'flex',
+  height: '100%',
+  justifyContent: 'center',
+  padding: '$3',
+  position: 'relative',
 
   '&:before': {
+    backgroundColor: '$gray600',
     content: '',
-    position: 'absolute',
+    height: '70%',
     left: -1,
+    position: 'absolute',
     top: '50%',
     transform: 'translateY(-50%)',
-    backgroundColor: '$gray600',
     width: 1,
-    height: '70%',
   },
 });
 
 const moveDown = keyframes({
-  '0%': { top: '0', visibility: 'hidden', opacity: 0 },
-  '100%': { top: '100%', visibility: 'visible', opacity: 1 },
+  '0%': { opacity: 0, top: '0', visibility: 'hidden' },
+  '100%': { opacity: 1, top: '100%', visibility: 'visible' },
 });
 
 export const Error = styled('label', {
-  position: 'absolute',
-  top: '0',
-  opacity: 0,
-  marginTop: 0,
-  visibility: 'hidden',
-  left: 0,
-  zIndex: 0,
-  width: '100%',
-  color: '$error800',
-  backgroundColor: '$error50',
-  padding: '$3',
   animation: `${moveDown} 200ms`,
   animationFillMode: 'forwards',
+  backgroundColor: '$error50',
+  color: '$error800',
+  left: 0,
+  marginTop: 0,
+  opacity: 0,
+  padding: '$3',
+  position: 'absolute',
+  top: '0',
+  visibility: 'hidden',
+  width: '100%',
+  zIndex: 0,
 });
 
 export const Root = styled('div', variantFontSize, {
-  position: 'relative',
   display: 'flex',
   flex: 1,
   flexDirection: 'column',
+  position: 'relative',
 });

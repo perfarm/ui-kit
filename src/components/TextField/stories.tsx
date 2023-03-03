@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { TextField } from './index';
 import { Props } from './type';
 
 export default {
-  title: 'Components/TextField',
-  component: TextField,
   argTypes: {
-    value: { control: { type: 'text' } },
     icon: { control: { type: 'text' } },
+    value: { control: { type: 'text' } },
   },
+  component: TextField,
+  title: 'Components/TextField',
 } as ComponentMeta<typeof TextField>;
 
 const defaultArgs: Props = {
-  label: 'Label',
+  disabled: false,
   error: false,
-  value: 'Input value',
-  placeholder: 'Insert text here',
   errorText: 'Text example of field error',
+  label: 'Label',
   name: '',
   onChange: () => {},
-  disabled: false,
+  placeholder: 'Insert text here',
+  value: 'Input value',
 };
 
 const Template: ComponentStory<typeof TextField> = (args) => {
@@ -33,10 +35,10 @@ const Template: ComponentStory<typeof TextField> = (args) => {
   return (
     <TextField
       {...args}
-      value={value}
       onChange={(e) => {
         setValue(e.target.value);
       }}
+      value={value}
     />
   );
 };

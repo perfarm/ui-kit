@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Content, Error, Icon, Input, InputContent, Label, Root } from './style';
 import { Props } from './type';
 
@@ -22,18 +23,18 @@ export const TextField: FC<Props> = ({
     <Root className={className} size={size}>
       <Label htmlFor={`textfield-${name}`}>{label}</Label>
       <Content>
-        <InputContent error={error} disabled={disabled}>
+        <InputContent disabled={disabled} error={error}>
           <Input
-            placeholder={placeholder}
-            size={size}
+            disabled={disabled}
             id={`textfield-${name}`}
+            maxLength={maxLength}
             name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+            size={size}
             type={type}
             value={value}
-            onChange={onChange}
-            maxLength={maxLength}
-            required={required}
-            disabled={disabled}
           />
           {icon ? (
             <Icon htmlFor={`textfield-${name}`} size={size}>
@@ -42,7 +43,7 @@ export const TextField: FC<Props> = ({
           ) : null}
         </InputContent>
         {error && errorText?.length > 0 && (
-          <Error id={`textfield-error-${name}`} htmlFor={`textfield-${name}`}>
+          <Error htmlFor={`textfield-${name}`} id={`textfield-error-${name}`}>
             {errorText}
           </Error>
         )}

@@ -9,6 +9,7 @@
     "postinstall": "husky install",
     "check:typescript": "tsc --noEmit",
     "lint:staged": "lint-staged",
+    "lint:format": "eslint --fix --ext .ts,.tsx .",
     "test": "jest",
     "storybook": "start-storybook -p 9009",
     "build:storybook": "build-storybook",

@@ -15,7 +15,7 @@
     "sourceType": "module",
     "project": "tsconfig.json"
   },
-  "plugins": ["react", "eslint-plugin-import-helpers", "typescript-sort-keys"],
+  "plugins": ["react", "eslint-plugin-import-helpers", "typescript-sort-keys", "unused-imports"],
   "ignorePatterns": [".husky", "dist"],
   "rules": {
     "curly": ["error", "all"],
