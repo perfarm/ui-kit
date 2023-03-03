@@ -37,7 +37,7 @@
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ],
-    "react/jsx-sort-props": [1],
+    "react/jsx-sort-props": "error",
     "typescript-sort-keys/interface": "error",
     "typescript-sort-keys/string-enum": "error"
   }
