@@ -6,12 +6,12 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    wordWrap: 'break-word',
-    wordBreak: 'normal',
-    minWidth: '360px',
+    margin: 0,
     maxWidth: '100%',
     minHeight: '100%',
-    margin: 0,
+    minWidth: '360px',
+    wordBreak: 'normal',
+    wordWrap: 'break-word',
   },
 
   'button, div,a': {
@@ -20,26 +20,26 @@ export const globalStyles = globalCss({
 
   /* ------------------ */
   /* Select Shadows */
-  '::selection': {
-    backgroundColor: '$blackOpacity3',
-  },
   '::-moz-selection': {
     backgroundColor: '$blackOpacity5',
+  },
+  '::selection': {
+    backgroundColor: '$blackOpacity3',
   },
 
   /* ------------------ */
   /* Scrollbar */
   '::-webkit-scrollbar': {
-    width: '6px',
     height: '6px',
-  },
-  '::-webkit-scrollbar-track': {
-    backgroundColor: '$blackOpacity1',
+    width: '6px',
   },
   '::-webkit-scrollbar-thumb': {
     backgroundColor: '$primary400',
   },
   '::-webkit-scrollbar-thumb:window-inactive': {
     backgroundColor: '$secondary400',
+  },
+  '::-webkit-scrollbar-track': {
+    backgroundColor: '$blackOpacity1',
   },
 });
