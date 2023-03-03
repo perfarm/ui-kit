@@ -5,7 +5,7 @@ import { Props } from './types';
 
 export const Button: FC<Props> = ({ label, color, size, onClick, disabled, id }) => {
   return (
-    <ButtonStyled color={color} size={size} onClick={onClick} disabled={disabled} id={id}>
+    <ButtonStyled color={color} disabled={disabled} id={id} onClick={onClick} size={size}>
       {label}
     </ButtonStyled>
   );

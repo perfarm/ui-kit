@@ -25,9 +25,9 @@ export const MachineForm = ({ label }: MachineFormProps) => {
       <input
         id="email"
         name="email"
-        type="email"
-        onChange={formik.handleChange}
         onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+        type="email"
         value={formik.values.email}
       />
       {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}

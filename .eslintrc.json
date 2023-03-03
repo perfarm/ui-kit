@@ -15,7 +15,7 @@
     "sourceType": "module",
     "project": "tsconfig.json"
   },
-  "plugins": ["react", "eslint-plugin-import-helpers"],
+  "plugins": ["react", "eslint-plugin-import-helpers", "typescript-sort-keys"],
   "ignorePatterns": [".husky", "dist"],
   "rules": {
     "curly": ["error", "all"],
@@ -25,6 +25,10 @@
       "asc",
       { "caseSensitive": true, "natural": true, "minKeys": 2, "allowLineSeparatedGroups": true }
     ],
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "import-helpers/order-imports": [
       "error",
       {
@@ -33,9 +37,8 @@
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ],
-    "@typescript-eslint/consistent-type-assertions": "off",
-    "@typescript-eslint/consistent-type-imports": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "react/jsx-sort-props": [1],
+    "typescript-sort-keys/interface": "error",
+    "typescript-sort-keys/string-enum": "error"
   }
 }

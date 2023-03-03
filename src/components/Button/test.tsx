@@ -10,7 +10,7 @@ describe('Button enabled', () => {
     const label = 'Salvar';
     const handleClick = jest.fn();
 
-    render(<Button label={label} color="primary" size="medium" onClick={handleClick} />);
+    render(<Button color="primary" label={label} onClick={handleClick} size="medium" />);
 
     const button = screen.getByRole('button', { name: label });
 
@@ -21,7 +21,7 @@ describe('Button enabled', () => {
     const label = 'Salvar';
     const handleClick = jest.fn();
 
-    render(<Button label={label} color="primary" size="medium" onClick={handleClick} />);
+    render(<Button color="primary" label={label} onClick={handleClick} size="medium" />);
 
     const button = screen.getByRole('button', { name: label });
 
@@ -36,7 +36,7 @@ describe('Button disabled', () => {
     const label = 'Button disabled';
     const handleClick = jest.fn();
 
-    render(<Button label={label} color="primary" size="medium" onClick={handleClick} disabled />);
+    render(<Button color="primary" disabled label={label} onClick={handleClick} size="medium" />);
 
     const button = screen.getByRole('button', { name: label });
 

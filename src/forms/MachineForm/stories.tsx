@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { MachineForm } from './index';
+import { MachineForm } from '.';
 
 export default {
   component: MachineForm,
