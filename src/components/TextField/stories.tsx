@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TextField } from './index';
 import { Props } from './type';
@@ -16,8 +16,8 @@ export default {
 
 const defaultArgs: Props = {
   disabled: false,
-  error: false,
   errorText: 'Text example of field error',
+  hasError: false,
   label: 'Label',
   name: '',
   onChange: () => {},
@@ -57,7 +57,7 @@ export const Error = Template.bind({});
 
 Error.args = {
   ...defaultArgs,
-  error: true,
+  hasError: true,
 };
 
 export const Icon = Template.bind({});

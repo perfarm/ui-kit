@@ -15,7 +15,7 @@
     "sourceType": "module",
     "project": "tsconfig.json"
   },
-  "plugins": ["react", "eslint-plugin-import-helpers", "typescript-sort-keys", "unused-imports"],
+  "plugins": ["react", "eslint-plugin-import-helpers", "typescript-sort-keys", "sort-destructure-keys"],
   "ignorePatterns": [".husky", "dist"],
   "rules": {
     "curly": ["error", "all"],
@@ -25,16 +25,7 @@
       "asc",
       { "caseSensitive": true, "natural": true, "minKeys": 2, "allowLineSeparatedGroups": true }
     ],
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ],
+
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -52,6 +43,7 @@
     ],
     "react/jsx-sort-props": "error",
     "typescript-sort-keys/interface": "error",
-    "typescript-sort-keys/string-enum": "error"
+    "typescript-sort-keys/string-enum": "error",
+    "sort-destructure-keys/sort-destructure-keys": [2, { "caseSensitive": false }]
   }
 }

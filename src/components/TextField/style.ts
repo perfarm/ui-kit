@@ -46,12 +46,15 @@ export const Input = styled('input', variantFontSize, variantPadding, {
   flex: 1,
   outline: 'none',
 });
+
 export const Label = styled('label', {
   marginBottom: '$1',
 });
+
 export const Content = styled('div', {
   position: 'relative',
 });
+
 export const InputContent = styled('div', {
   alignItems: 'center',
   backgroundColor: '$white',
@@ -82,7 +85,7 @@ export const InputContent = styled('div', {
         },
       },
     },
-    error: {
+    hasError: {
       true: {
         border: '1px solid $error200',
 
@@ -93,6 +96,7 @@ export const InputContent = styled('div', {
     },
   },
 });
+
 export const Icon = styled('label', variantPadding, {
   alignItems: 'center',
   color: '$gray600',
