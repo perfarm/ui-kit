@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { faker } from '@faker-js/faker';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { TextField } from '.';
 
@@ -18,21 +19,30 @@ const mockRandomValues = () => {
 };
 
 describe('TextField', () => {
-  test('should start with value and get mockFn with valueChanged', () => {
-    const { mockFn, tagName, value, valueChanged } = mockRandomValues();
+  test('should call mockFn with valueChanged when user type', async () => {
+    const { mockFn, tagName, valueChanged } = mockRandomValues();
+    render(<TextField name={tagName} onChange={(e) => mockFn(e.target.value)} />);
+
+    const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
+
+    await userEvent.type(inputElement, valueChanged);
+
+    expect(mockFn).toHaveBeenCalledWith(valueChanged);
+  });
+
+  test('should MockFn not change value when value is defined by properties, buy each word typed is count', async () => {
+    const { mockFn, tagName, value } = mockRandomValues();
     render(<TextField name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
     const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
 
+    await userEvent.type(inputElement, `abcde`);
+
+    expect(mockFn).toBeCalledTimes(5);
     expect(inputElement.value).toBe(value);
-
-    fireEvent.change(inputElement, { target: { value: valueChanged } });
-
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn).toHaveBeenCalledWith(valueChanged);
   });
 
-  test('should disabled input and not call event', () => {
+  test('should disabled input and not call event', async () => {
     const { mockFn, tagName, value, valueChanged } = mockRandomValues();
     render(<TextField disabled name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
@@ -41,7 +51,7 @@ describe('TextField', () => {
     expect(inputElement).toBeDisabled();
     expect(inputElement.value).toBe(value);
 
-    fireEvent.change(inputElement, { target: { value: valueChanged } });
+    await userEvent.type(inputElement, valueChanged);
 
     expect(mockFn).not.toBeCalled();
   });

@@ -18,5 +18,5 @@ export interface Props {
   required?: boolean;
   size?: InputSizes;
   type?: InputTypes;
-  value: string | number;
+  value?: string | number;
 }
