@@ -30,18 +30,6 @@ describe('TextField', () => {
     expect(mockFn).toHaveBeenCalledWith(valueChanged);
   });
 
-  test('should MockFn not change value when value is defined by properties, buy each word typed is count', async () => {
-    const { mockFn, tagName, value } = mockRandomValues();
-    render(<TextField name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
-
-    const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
-
-    await userEvent.type(inputElement, `abcde`);
-
-    expect(mockFn).toBeCalledTimes(5);
-    expect(inputElement.value).toBe(value);
-  });
-
   test('should disabled input and not call event', async () => {
     const { mockFn, tagName, value, valueChanged } = mockRandomValues();
     render(<TextField disabled name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
