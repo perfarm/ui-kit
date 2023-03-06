@@ -19,18 +19,18 @@ const mockRandomValues = () => {
 };
 
 describe('TextField', () => {
-  test('should call mockFn with valueChanged when user type', async () => {
+  test('should call mockFn with valueChanged when user type', () => {
     const { mockFn, tagName, valueChanged } = mockRandomValues();
     render(<TextField name={tagName} onChange={(e) => mockFn(e.target.value)} />);
 
     const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
 
-    await userEvent.type(inputElement, valueChanged);
+    userEvent.type(inputElement, valueChanged);
 
     expect(mockFn).toHaveBeenCalledWith(valueChanged);
   });
 
-  test('should disabled input and not call event', async () => {
+  test('should disabled input and not call event', () => {
     const { mockFn, tagName, value, valueChanged } = mockRandomValues();
     render(<TextField disabled name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
@@ -39,7 +39,7 @@ describe('TextField', () => {
     expect(inputElement).toBeDisabled();
     expect(inputElement.value).toBe(value);
 
-    await userEvent.type(inputElement, valueChanged);
+    userEvent.type(inputElement, valueChanged);
 
     expect(mockFn).not.toBeCalled();
   });
