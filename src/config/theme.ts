@@ -53,6 +53,9 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
 
       white: '#fff',
     },
+    fonts: {
+      system: 'system-ui',
+    },
     fontSizes: {
       1: '1.2rem',
       2: '1.4rem',
@@ -61,9 +64,6 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       5: '2.4rem',
       6: '2.8rem',
       7: '3.2rem',
-    },
-    fonts: {
-      system: 'system-ui',
     },
     media: {
       lg: '(min-width: 1200px)',
