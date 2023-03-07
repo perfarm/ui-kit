@@ -40,7 +40,6 @@ const Template: ComponentStory<typeof NumberField> = (args) => {
       onChange={(e) => {
         setValue(e.target.value);
       }}
-      type="number"
       value={value}
     />
   );
