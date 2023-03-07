@@ -1,8 +1,12 @@
-import * as RadioGroup from '@radix-ui/react-radio-group';
+import {
+  Indicator as RadixRadioGroupIndicator,
+  Item as RadixRadioGroupItem,
+  Root as RadixRadioGroupRoot,
+} from '@radix-ui/react-radio-group';
 
 import { styled } from '~/config/theme';
 
-export const Root = styled(RadioGroup.Root, {
+export const Root = styled(RadixRadioGroupRoot, {
   display: 'flex',
   flexDirection: 'column',
   gap: '$3',
@@ -13,7 +17,7 @@ export const ItemWrapper = styled('div', {
   display: 'flex',
 });
 
-export const Item = styled(RadioGroup.Item, {
+export const Item = styled(RadixRadioGroupItem, {
   backgroundColor: '$white',
   borderColor: '$gray500',
   borderRadius: '$round',
@@ -49,7 +53,7 @@ export const Item = styled(RadioGroup.Item, {
   },
 });
 
-export const ItemIndicator = styled(RadioGroup.Indicator, {
+export const ItemIndicator = styled(RadixRadioGroupIndicator, {
   alignItems: 'center',
   display: 'flex',
   height: '100%',
