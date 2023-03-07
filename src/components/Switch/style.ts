@@ -1,4 +1,4 @@
-import * as Switch from '@radix-ui/react-switch';
+import { Root as RadixSwitchRoot, Thumb as RadixSwitchThumb } from '@radix-ui/react-switch';
 
 import { styled } from '~/config/theme';
 
@@ -9,15 +9,15 @@ export const Root = styled('div', {
 });
 
 export const Label = styled('label', {
-  color: '$gray600',
+  color: '$gray800',
   cursor: 'pointer',
   fontSize: '$2',
   userSelect: 'none',
 });
 
-export const SwitchRoot = styled(Switch.Root, {
+export const SwitchRoot = styled(RadixSwitchRoot, {
   backgroundColor: '$white',
-  borderColor: '$gray400',
+  borderColor: '$gray500',
   borderRadius: '9999px',
   borderStyle: 'solid',
   borderWidth: '1px',
@@ -52,9 +52,9 @@ export const SwitchRoot = styled(Switch.Root, {
   },
 });
 
-export const SwitchThumb = styled(Switch.Thumb, {
+export const SwitchThumb = styled(RadixSwitchThumb, {
   backgroundColor: 'white',
-  borderColor: '$gray400',
+  borderColor: '$gray500',
   borderRadius: '9999px',
   borderStyle: 'solid',
   borderWidth: '1px',

@@ -3,5 +3,5 @@ export interface Props {
   disabled?: boolean;
   id: string;
   label: string;
-  onCheckedChange: (checked: boolean) => void;
+  onChange: (checked: boolean) => void;
 }

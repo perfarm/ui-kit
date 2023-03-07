@@ -10,18 +10,18 @@ describe('Switch enabled', () => {
     const label = 'Aceito os termos de uso';
     const handleCheckedChange = jest.fn();
 
-    render(<Switch checked={false} id="switch-enabled" label={label} onCheckedChange={handleCheckedChange} />);
+    render(<Switch checked={false} id="switch-enabled" label={label} onChange={handleCheckedChange} />);
 
     const switchLabel = screen.getByText(label);
 
     expect(switchLabel).toBeInTheDocument();
   });
 
-  test('calls onCheckedChange prop when clicked', () => {
+  test('calls onChange prop when clicked', () => {
     const label = 'Aceito os termos de uso';
     const handleCheckedChange = jest.fn();
 
-    render(<Switch checked={false} id="switch-enabled" label={label} onCheckedChange={handleCheckedChange} />);
+    render(<Switch checked={false} id="switch-enabled" label={label} onChange={handleCheckedChange} />);
 
     const switchLabel = screen.getByText(label);
 
@@ -32,16 +32,16 @@ describe('Switch enabled', () => {
 });
 
 describe('Switch disabled', () => {
-  test('doesnt call onCheckedChange prop when clicked', () => {
+  test('doesnt call onChange prop when clicked', () => {
     const label = 'Aceito os termos de uso';
     const handleCheckedChange = jest.fn();
 
-    render(<Switch checked={false} disabled id="switch-enabled" label={label} onCheckedChange={handleCheckedChange} />);
+    render(<Switch checked={false} disabled id="switch-enabled" label={label} onChange={handleCheckedChange} />);
 
     const switchLabel = screen.getByText(label);
 
     userEvent.click(switchLabel);
 
-    expect(handleCheckedChange).toBeCalledTimes(0);
+    expect(handleCheckedChange).not.toBeCalled();
   });
 });
