@@ -1,7 +1,9 @@
+import { SwitchProps as RadixSwitchProps } from '@radix-ui/react-switch';
+
 export interface Props {
-  checked: boolean;
+  checked: RadixSwitchProps['checked'];
   disabled?: boolean;
   id: string;
   label: string;
-  onChange: (checked: boolean) => void;
+  onChange: RadixSwitchProps['onCheckedChange'];
 }
