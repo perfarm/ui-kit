@@ -7,11 +7,11 @@ export const RadioGroup: FC<Props> = ({ ariaLabel, disabled, items, onChange, va
   return (
     <Root aria-label={ariaLabel} disabled={disabled} onValueChange={onChange} value={value}>
       {items.map((item) => (
-        <ItemWrapper key={item.id}>
-          <Item id={item.id} value={item.id}>
+        <ItemWrapper key={item.value}>
+          <Item id={item.value} value={item.value}>
             <ItemIndicator />
           </Item>
-          <ItemLabel htmlFor={item.id}>{item.label}</ItemLabel>
+          <ItemLabel htmlFor={item.value}>{item.label}</ItemLabel>
         </ItemWrapper>
       ))}
     </Root>

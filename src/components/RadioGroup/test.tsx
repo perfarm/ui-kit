@@ -8,13 +8,13 @@ import { RadioGroup } from '.';
 describe('RadioGroup enabled', () => {
   test('renders item label', () => {
     const items = [
-      { id: '1', label: 'Item 1' },
-      { id: '2', label: 'Item 2' },
+      { label: 'Item 1', value: '1' },
+      { label: 'Item 2', value: '2' },
     ];
 
     const handleValueChange = jest.fn();
 
-    render(<RadioGroup items={items} onChange={handleValueChange} value={items[0].id} />);
+    render(<RadioGroup items={items} onChange={handleValueChange} value={items[0].value} />);
 
     const firstItemLabel = screen.getByText(items[0].label);
 
@@ -23,13 +23,13 @@ describe('RadioGroup enabled', () => {
 
   test('calls onChange prop when clicked on a not selected item', () => {
     const items = [
-      { id: '1', label: 'Item 1' },
-      { id: '2', label: 'Item 2' },
+      { label: 'Item 1', value: '1' },
+      { label: 'Item 2', value: '2' },
     ];
 
     const handleValueChange = jest.fn();
 
-    render(<RadioGroup items={items} onChange={handleValueChange} value={items[0].id} />);
+    render(<RadioGroup items={items} onChange={handleValueChange} value={items[0].value} />);
 
     const secondItemLabel = screen.getByText(items[1].label);
 
@@ -42,13 +42,13 @@ describe('RadioGroup enabled', () => {
 describe('Switch disabled', () => {
   test('doesnt call onChange prop when clicked on a not selected item', () => {
     const items = [
-      { id: '1', label: 'Item 1' },
-      { id: '2', label: 'Item 2' },
+      { label: 'Item 1', value: '1' },
+      { label: 'Item 2', value: '2' },
     ];
 
     const handleValueChange = jest.fn();
 
-    render(<RadioGroup disabled items={items} onChange={handleValueChange} value={items[0].id} />);
+    render(<RadioGroup disabled items={items} onChange={handleValueChange} value={items[0].value} />);
 
     const secondItemLabel = screen.getByText(items[1].label);
 
