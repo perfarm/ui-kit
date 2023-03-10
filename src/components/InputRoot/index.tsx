@@ -15,19 +15,19 @@ export const InputRoot: FC<Props> = ({
   size,
 }) => (
   <Root className={className} size={size}>
-    {label ? <Label htmlFor={`${elementId}`}>{label}</Label> : null}
+    {label ? <Label htmlFor={elementId}>{label}</Label> : null}
     <Content>
       <InputContent disabled={disabled} hasError={hasError}>
         {children}
         {icon ? (
-          <Icon htmlFor={`${elementId}`} size={size}>
+          <Icon htmlFor={elementId} size={size}>
             {icon}
           </Icon>
         ) : null}
       </InputContent>
 
       {hasError && !!errorText?.length && (
-        <Error htmlFor={`${elementId}`} id={`${elementId}-error`}>
+        <Error htmlFor={elementId} id={`${elementId}-error`}>
           {errorText}
         </Error>
       )}
