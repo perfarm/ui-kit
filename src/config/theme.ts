@@ -8,6 +8,7 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       blackOpacity1: 'rgba(0, 0, 0, 0.1)',
       blackOpacity3: 'rgba(0, 0, 0, 0.3)',
       blackOpacity5: 'rgba(0, 0, 0, 0.5)',
+      blackOpacity9: 'rgba(0, 0, 0, 0.9)',
       error50: '#FFEBEE',
       error200: '#EF9A9A',
       error400: '#EF5350',
@@ -54,7 +55,7 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       white: '#fff',
     },
     fonts: {
-      system: 'system-ui',
+      roboto: 'Roboto',
     },
     fontSizes: {
       1: '1.2rem',
@@ -65,6 +66,7 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       6: '2.8rem',
       7: '3.2rem',
     },
+
     media: {
       lg: '(min-width: 1200px)',
       md: '(min-width: 900px)',
@@ -79,6 +81,9 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       4: '16px',
       5: '20px',
       round: '50%',
+    },
+    shadows: {
+      1: '0 2px 4px 0px rgba(0, 0, 0, 0.2)',
     },
     space: {
       1: '2px',

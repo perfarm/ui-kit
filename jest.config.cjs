@@ -3,10 +3,10 @@
 const path = require('path');
 
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   moduleNameMapper: {
     '^~/(.*)$': path.join(__dirname, 'src', '$1'),
   },
+  preset: 'ts-jest',
+  setupFilesAfterEnv: ['@testing-library/jest-dom', './jest.globals.ts'],
+  testEnvironment: 'jsdom',
 };
