@@ -26,7 +26,7 @@ const defaultArgs: Props = {
 };
 
 const Template: ComponentStory<typeof TextAreaField> = (args) => {
-  const [value, setValue] = useState<number | string>('Lorem Ipsum');
+  const [value, setValue] = useState<string>('Lorem Ipsum');
 
   useEffect(() => {
     setValue(args.value);

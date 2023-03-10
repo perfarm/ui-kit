@@ -8,21 +8,20 @@ import { InputRoot } from '.';
 const mockRandomValues = () => {
   const mockFn = jest.fn();
   const label = faker.name.prefix();
-  const tagName = faker.name.suffix();
   const icon = faker.name.jobArea();
   const errorText = faker.lorem.words(6);
   const value = faker.name.fullName();
   const valueChanged = faker.name.fullName();
   const childrenText = faker.lorem.words(4);
 
-  return { childrenText, errorText, icon, label, mockFn, tagName, value, valueChanged };
+  return { childrenText, errorText, icon, label, mockFn, value, valueChanged };
 };
 
 describe('InputRoot', () => {
   test('should show children element', () => {
-    const { childrenText, tagName } = mockRandomValues();
+    const { childrenText } = mockRandomValues();
     render(
-      <InputRoot disabled name={tagName}>
+      <InputRoot disabled>
         <div>{childrenText}</div>
       </InputRoot>
     );
@@ -32,9 +31,9 @@ describe('InputRoot', () => {
   });
 
   test('should show icon element', () => {
-    const { childrenText, icon, tagName } = mockRandomValues();
+    const { childrenText, icon } = mockRandomValues();
     render(
-      <InputRoot disabled icon={icon} name={tagName}>
+      <InputRoot disabled icon={icon}>
         <div>{childrenText}</div>
       </InputRoot>
     );
@@ -44,9 +43,9 @@ describe('InputRoot', () => {
   });
 
   test('should show label element', () => {
-    const { childrenText, label, tagName } = mockRandomValues();
+    const { childrenText, label } = mockRandomValues();
     render(
-      <InputRoot disabled label={label} name={tagName}>
+      <InputRoot disabled label={label}>
         <div>{childrenText}</div>
       </InputRoot>
     );
@@ -56,23 +55,23 @@ describe('InputRoot', () => {
   });
 
   test('should show error element and message', () => {
-    const { childrenText, errorText, tagName } = mockRandomValues();
+    const { childrenText, errorText } = mockRandomValues();
     render(
-      <InputRoot errorText={errorText} hasError name={tagName}>
+      <InputRoot elementId="teste" errorText={errorText} hasError>
         <div>{childrenText}</div>
       </InputRoot>
     );
 
-    const errorElement = document.getElementById(`input-error-${tagName}`) as HTMLInputElement;
+    const errorElement = document.getElementById(`teste-error`) as HTMLInputElement;
 
     expect(errorElement).toBeInTheDocument();
     expect(screen.queryByText(errorText)).toBeInTheDocument();
   });
 
   test('should not show error message when error is false and have errorText', () => {
-    const { childrenText, errorText, tagName } = mockRandomValues();
+    const { childrenText, errorText } = mockRandomValues();
     render(
-      <InputRoot errorText={errorText} name={tagName}>
+      <InputRoot errorText={errorText}>
         <div>{childrenText}</div>
       </InputRoot>
     );
@@ -81,14 +80,14 @@ describe('InputRoot', () => {
   });
 
   test('should not show errorElement when hasError is true and errorText is empty', () => {
-    const { childrenText, tagName } = mockRandomValues();
+    const { childrenText } = mockRandomValues();
     render(
-      <InputRoot hasError name={tagName}>
+      <InputRoot elementId="teste" hasError>
         <div>{childrenText}</div>
       </InputRoot>
     );
 
-    const errorElement = document.getElementById(`input-error-${tagName}`) as HTMLInputElement;
+    const errorElement = document.getElementById(`teste-error`) as HTMLInputElement;
 
     expect(errorElement).not.toBeInTheDocument();
   });

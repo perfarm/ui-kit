@@ -68,7 +68,7 @@ describe('TextField', () => {
       <TextField errorText={errorText} hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />
     );
 
-    const errorElement = document.getElementById(`textfield-error-${tagName}`) as HTMLInputElement;
+    const errorElement = document.getElementById(`textfield-${tagName}-error`) as HTMLInputElement;
 
     expect(errorElement).toBeInTheDocument();
     expect(screen.queryByText(errorText)).toBeInTheDocument();
@@ -85,7 +85,7 @@ describe('TextField', () => {
     const { mockFn, tagName, value } = mockRandomValues();
     render(<TextField hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
-    const errorElement = document.getElementById(`textfield-error-${tagName}`) as HTMLInputElement;
+    const errorElement = document.getElementById(`textfield-${tagName}-error`) as HTMLInputElement;
 
     expect(errorElement).not.toBeInTheDocument();
   });

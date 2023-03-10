@@ -12,23 +12,22 @@ export const InputRoot: FC<Props> = ({
   hasError,
   icon,
   label,
-  name,
   size,
 }) => (
   <Root className={className} size={size}>
-    {label ? <Label htmlFor={`${elementId}-${name}`}>{label}</Label> : null}
+    {label ? <Label htmlFor={`${elementId}`}>{label}</Label> : null}
     <Content>
       <InputContent disabled={disabled} hasError={hasError}>
         {children}
         {icon ? (
-          <Icon htmlFor={`${elementId}-${name}`} size={size}>
+          <Icon htmlFor={`${elementId}`} size={size}>
             {icon}
           </Icon>
         ) : null}
       </InputContent>
 
       {hasError && !!errorText?.length && (
-        <Error htmlFor={`${elementId}-${name}`} id={`${elementId}-error-${name}`}>
+        <Error htmlFor={`${elementId}`} id={`${elementId}-error`}>
           {errorText}
         </Error>
       )}

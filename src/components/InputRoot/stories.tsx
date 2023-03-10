@@ -21,7 +21,6 @@ const defaultArgs: Props = {
   errorText: 'Text example of field error',
   hasError: false,
   label: 'Label',
-  name: '',
 };
 
 const Template: ComponentStory<typeof InputRoot> = (args) => <InputRoot {...args} />;

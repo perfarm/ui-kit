@@ -90,7 +90,7 @@ describe('TextAreaField', () => {
     const { mockFn, tagName, value } = mockRandomValues();
     render(<TextAreaField hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
-    const errorElement = document.getElementById(`textarea-error-${tagName}`) as HTMLInputElement;
+    const errorElement = document.getElementById(`textarea-${tagName}-error`) as HTMLInputElement;
 
     expect(errorElement).not.toBeInTheDocument();
   });

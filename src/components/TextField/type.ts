@@ -6,6 +6,7 @@ export type InputType = 'email' | 'password' | 'search' | 'tel' | 'text' | 'numb
 
 export interface OwnProps {
   maxLength?: number;
+  name: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   required?: boolean;
