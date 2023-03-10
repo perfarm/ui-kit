@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 
 import { InputRoot } from '~/components/InputRoot';
 
-import { Input } from './style';
-import { Props } from './type';
+import { TextArea } from './style';
+import { Props } from './types';
 
-export const TextField: FC<Props> = (props) => {
-  const id = `textfield-${props.name}`;
+export const TextAreaField: FC<Props> = (props) => {
+  const id = `textarea-${props.name}`;
 
   return (
     <InputRoot {...props} elementId={id}>
-      <Input
+      <TextArea
         disabled={props.disabled}
         id={id}
         maxLength={props.maxLength}
@@ -18,8 +18,8 @@ export const TextField: FC<Props> = (props) => {
         onChange={props.onChange}
         placeholder={props.placeholder}
         required={props.required}
+        rows={props.rows}
         size={props.size}
-        type={props.type}
         value={props.value}
       />
     </InputRoot>

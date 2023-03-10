@@ -2,16 +2,14 @@ import { ChangeEventHandler } from 'react';
 
 import { OwnProps as InputRootProps } from '~/components/InputRoot/type';
 
-export type InputType = 'email' | 'password' | 'search' | 'tel' | 'text' | 'number' | 'url';
-
 export interface OwnProps {
   maxLength?: number;
   name: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: ChangeEventHandler<HTMLTextAreaElement>;
   placeholder?: string;
   required?: boolean;
-  type?: InputType;
-  value?: string | number;
+  rows?: number;
+  value?: string;
 }
 
 export type Props = InputRootProps & OwnProps;

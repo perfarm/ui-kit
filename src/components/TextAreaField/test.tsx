@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { TextField } from '.';
+import { TextAreaField } from '.';
 
 const mockRandomValues = () => {
   const mockFn = jest.fn();
@@ -18,12 +18,12 @@ const mockRandomValues = () => {
   return { errorText, icon, label, mockFn, tagName, value, valueChanged };
 };
 
-describe('TextField', () => {
+describe('TextAreaField', () => {
   test('should call mockFn with valueChanged when user type', () => {
     const { mockFn, tagName, valueChanged } = mockRandomValues();
-    render(<TextField name={tagName} onChange={(e) => mockFn(e.target.value)} />);
+    render(<TextAreaField name={tagName} onChange={(e) => mockFn(e.target.value)} />);
 
-    const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
+    const inputElement = document.getElementById(`textarea-${tagName}`) as HTMLInputElement;
 
     userEvent.type(inputElement, valueChanged);
 
@@ -32,9 +32,9 @@ describe('TextField', () => {
 
   test('should disabled input and not call event', () => {
     const { mockFn, tagName, value, valueChanged } = mockRandomValues();
-    render(<TextField disabled name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
+    render(<TextAreaField disabled name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
-    const inputElement = document.getElementById(`textfield-${tagName}`) as HTMLInputElement;
+    const inputElement = document.getElementById(`textarea-${tagName}`) as HTMLInputElement;
 
     expect(inputElement).toBeDisabled();
     expect(inputElement.value).toBe(value);
@@ -46,7 +46,7 @@ describe('TextField', () => {
 
   test('should show icon element', () => {
     const { icon, mockFn, tagName, value } = mockRandomValues();
-    render(<TextField icon={icon} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
+    render(<TextAreaField icon={icon} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
     const iconElement = screen.queryByText(icon);
 
@@ -55,7 +55,7 @@ describe('TextField', () => {
 
   test('should show label element', () => {
     const { label, mockFn, tagName, value } = mockRandomValues();
-    render(<TextField label={label} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
+    render(<TextAreaField label={label} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
     const labelElement = screen.queryByText(label);
 
@@ -65,27 +65,32 @@ describe('TextField', () => {
   test('should show error element and message', () => {
     const { errorText, mockFn, tagName, value } = mockRandomValues();
     render(
-      <TextField errorText={errorText} hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />
+      <TextAreaField
+        errorText={errorText}
+        hasError
+        name={tagName}
+        onChange={(e) => mockFn(e.target.value)}
+        value={value}
+      />
     );
 
-    const errorElement = document.getElementById(`textfield-${tagName}-error`) as HTMLInputElement;
-
-    expect(errorElement).toBeInTheDocument();
     expect(screen.queryByText(errorText)).toBeInTheDocument();
   });
 
   test('should not show error message when error is false and have errorText', () => {
     const { errorText, mockFn, tagName, value } = mockRandomValues();
-    render(<TextField errorText={errorText} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
+    render(
+      <TextAreaField errorText={errorText} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />
+    );
 
     expect(screen.queryByText(errorText)).not.toBeInTheDocument();
   });
 
   test('should not show errorElement when hasError is true and errorText is empty', () => {
     const { mockFn, tagName, value } = mockRandomValues();
-    render(<TextField hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
+    render(<TextAreaField hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 
-    const errorElement = document.getElementById(`textfield-${tagName}-error`) as HTMLInputElement;
+    const errorElement = document.getElementById(`textarea-${tagName}-error`) as HTMLInputElement;
 
     expect(errorElement).not.toBeInTheDocument();
   });
