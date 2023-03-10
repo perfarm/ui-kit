@@ -11,6 +11,7 @@ export default {
   argTypes: {
     color: { defaultValue: 'black' },
     description: { control: { type: 'text' } },
+    isOpen: { defaultValue: true },
     maxHeight: { defaultValue: 'medium' },
     trigger: { control: { type: 'text' } },
   },
@@ -20,8 +21,8 @@ export default {
 } as ComponentMeta<typeof Tooltip>;
 
 const defaultArgs: Props = {
+  children: 'Children Trigger',
   description: faker.lorem.words(4),
-  trigger: 'Example Trigger',
 };
 
 const Template: ComponentStory<typeof Tooltip> = (args) => {
@@ -63,9 +64,9 @@ export const Icon = Template.bind({});
 
 Icon.args = {
   ...defaultArgs,
+  children: <FaInfoCircle size="3rem" />,
   description: faker.lorem.paragraph(8),
-  trigger: <FaInfoCircle size="3rem" />,
 };
 Icon.argTypes = {
-  trigger: { control: { disable: true } },
+  children: { control: { disable: true } },
 };

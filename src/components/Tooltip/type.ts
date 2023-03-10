@@ -1,13 +1,16 @@
-export type TooltipColor = 'primary' | 'secondary' | 'white' | 'black';
-export type TooltipSide = 'top' | 'right' | 'bottom' | 'left';
-export type TooltipMaxHeight = 'small' | 'medium' | 'large';
+import { PropsWithChildren } from 'react';
 
-export interface Props {
+type TooltipColor = 'primary' | 'secondary' | 'white' | 'black';
+type TooltipSide = 'top' | 'right' | 'bottom' | 'left';
+type TooltipMaxHeight = 'small' | 'medium' | 'large';
+
+interface TooltipProps {
   color?: TooltipColor;
   delay?: number;
   description: string | JSX.Element;
   isOpen?: boolean;
   maxHeight?: TooltipMaxHeight;
   side?: TooltipSide;
-  trigger: string | JSX.Element;
 }
+
+export type Props = PropsWithChildren<TooltipProps>;

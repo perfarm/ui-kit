@@ -17,7 +17,7 @@ const mockRandomValues = () => {
 describe('Tooltip', () => {
   test('should click textTrigger and show textDescription', async () => {
     const { textDescription, textTrigger } = mockRandomValues();
-    render(<Tooltip description={textDescription} trigger={textTrigger} />);
+    render(<Tooltip description={textDescription}>{textTrigger}</Tooltip>);
 
     const elementTrigger = screen.getByText(textTrigger);
 
@@ -37,7 +37,11 @@ describe('Tooltip', () => {
     const { textDescription, textTrigger } = mockRandomValues();
 
     await act(async () => {
-      render(<Tooltip description={textDescription} isOpen trigger={textTrigger} />);
+      render(
+        <Tooltip description={textDescription} isOpen>
+          {textTrigger}
+        </Tooltip>
+      );
     });
 
     expect(screen.queryAllByText(textDescription)).not.toHaveLength(0);
