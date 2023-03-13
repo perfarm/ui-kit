@@ -4,12 +4,11 @@ import { CommonSize } from '~/commons/types';
 
 export interface OwnProps {
   className?: string;
-  disabled?: boolean;
-  elementId?: string;
-  errorText?: string;
-  hasError?: boolean;
-  icon?: string | JSX.Element;
-  label?: string;
+  elementId: string;
+  icon?: JSX.Element;
+  iconText?: string | JSX.Element;
+  isOptional?: boolean;
+  optionalText?: string;
   size?: CommonSize;
 }
 

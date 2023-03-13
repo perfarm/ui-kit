@@ -1,15 +1,18 @@
 import { globalCss } from './theme';
 
 export const globalStyles = globalCss({
-  '*, &::after, &::before': {
-    boxSizing: 'border-box',
-  },
+  '@import': "url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')",
 
   ':root': {
     fontSize: '62.5%',
   },
 
+  '*, &::after, &::before': {
+    boxSizing: 'border-box',
+  },
+
   body: {
+    fontFamily: '$roboto',
     margin: 0,
     maxWidth: '100%',
     minHeight: '100%',
