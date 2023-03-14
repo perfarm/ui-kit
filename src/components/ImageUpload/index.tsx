@@ -1,30 +1,44 @@
-import React, { ChangeEvent, FC, useRef, useCallback, Fragment } from 'react';
+import React, { ChangeEvent, FC, Fragment, useCallback, useRef } from 'react';
 
 import { Button } from '../Button';
-import { Input } from './style';
+import { ButtonsWrapper, Image, Input, Root } from './style';
 import { Props } from './types';
 
-export const ImageUpload: FC<Props> = ({ buttonProps, setImageSrc }) => {
+export const ImageUpload: FC<Props> = ({ defaultValue, name, onChange, size, value }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleClick = useCallback(() => {
+  const selectImage = useCallback(() => {
     fileInputRef.current.click();
   }, [fileInputRef]);
+
+  const removeImage = useCallback(() => {
+    onChange(null);
+  }, [onChange]);
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
 
     reader.addEventListener('load', (e) => {
-      setImageSrc(e.target.result as string);
+      onChange(e.target.result as string);
     });
 
     reader.readAsDataURL(event.target.files[0]);
   }, []);
 
   return (
-    <Fragment>
-      <Button {...buttonProps} onClick={handleClick} />
-      <Input accept="image/*" onChange={handleChange} ref={fileInputRef} role="input" type="file" />
-    </Fragment>
+    <Root>
+      <Image size={size} src={value || defaultValue} />
+      <ButtonsWrapper>
+        {value ? (
+          <Fragment>
+            <Button color="primary" label="Trocar imagem" onClick={selectImage} size={size} />
+            <Button color="primary" label="Remover imagem" onClick={removeImage} size={size} />
+          </Fragment>
+        ) : (
+          <Button color="primary" label="Selecionar imagem" onClick={selectImage} size={size} />
+        )}
+      </ButtonsWrapper>
+      <Input accept="image/*" name={name} onChange={handleChange} ref={fileInputRef} role="input" type="file" />
+    </Root>
   );
 };

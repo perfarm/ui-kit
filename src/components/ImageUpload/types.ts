@@ -1,6 +1,9 @@
-import { Props as ButtonProps } from '../Button/types';
+import { ButtonSize } from '../Button/types';
 
 export interface Props {
-  buttonProps: Omit<ButtonProps, 'onClick'>;
-  setImageSrc: (imageSrc: string) => void;
+  defaultValue: string;
+  name: string;
+  onChange: (value: string) => void;
+  size: Exclude<ButtonSize, 'large'>;
+  value: string;
 }

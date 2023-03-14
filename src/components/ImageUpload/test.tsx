@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import { ImageUpload } from '.';
 
 test('uploads image', async () => {
-  let imageSrc: string;
+  let value: string;
 
   const file = new File(['hello'], 'hello.png', { type: 'image/png' });
 
@@ -22,10 +22,13 @@ test('uploads image', async () => {
 
   render(
     <ImageUpload
-      buttonProps={{ color: 'primary', label: 'Upload Image', size: 'small' }}
-      setImageSrc={(imgSrc) => {
-        imageSrc = imgSrc;
+      defaultValue=""
+      name="image-uploader"
+      onChange={(newValue) => {
+        value = newValue;
       }}
+      size="small"
+      value={value}
     />
   );
 
@@ -33,5 +36,5 @@ test('uploads image', async () => {
 
   userEvent.upload(input, file);
 
-  expect(fileInBase64).toStrictEqual(imageSrc);
+  expect(fileInBase64).toStrictEqual(value);
 });
