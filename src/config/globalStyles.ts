@@ -49,4 +49,8 @@ export const globalStyles = globalCss({
   '::-webkit-scrollbar-track': {
     backgroundColor: '$blackOpacity1',
   },
+
+  '[data-radix-popper-content-wrapper]': {
+    zIndex: '$tooltip!important',
+  },
 });

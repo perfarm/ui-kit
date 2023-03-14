@@ -95,6 +95,13 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
     transitions: {
       easeInOut02: 'all 0.2s ease-in-out',
     },
+    zIndices: {
+      appBar: 1100,
+      drawer: 1200,
+      modal: 1300,
+      snackbar: 1400,
+      tooltip: 1500,
+    },
   },
   utils: {
     marginX: (value: Stitches.PropertyValue<'margin'>) => ({

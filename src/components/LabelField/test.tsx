@@ -17,11 +17,16 @@ const mockRandomValues = () => {
 };
 
 describe('LabelField', () => {
-  test('should show childrenText', () => {
-    const { childrenText, elementId } = mockRandomValues();
-    render(<LabelField elementId={elementId}>{childrenText}</LabelField>);
+  test('should show childrenText and requiredDescription', () => {
+    const { childrenText, elementId, requiredDescription } = mockRandomValues();
+    render(
+      <LabelField elementId={elementId} requiredDescription={requiredDescription}>
+        {childrenText}
+      </LabelField>
+    );
 
     expect(screen.queryByText(childrenText)).toBeTruthy();
+    expect(screen.queryByText(requiredDescription)).toBeTruthy();
   });
 
   test('should show childrenText when click in elementIcon', async () => {
@@ -41,7 +46,7 @@ describe('LabelField', () => {
     expect(elementIcon).toHaveAttribute('data-state', 'instant-open');
   });
 
-  test('should show requiredDescription when required true', async () => {
+  test('should not show requiredDescription when required is true', async () => {
     const { childrenText, elementId, requiredDescription } = mockRandomValues();
     render(
       <LabelField elementId={elementId} required requiredDescription={requiredDescription}>
@@ -49,6 +54,6 @@ describe('LabelField', () => {
       </LabelField>
     );
 
-    expect(screen.queryByText(requiredDescription)).toBeTruthy();
+    expect(screen.queryByText(requiredDescription)).not.toBeTruthy();
   });
 });
