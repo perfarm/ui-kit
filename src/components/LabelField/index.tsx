@@ -3,26 +3,26 @@ import { FiInfo } from 'react-icons/fi';
 
 import { Tooltip } from '~/components/Tooltip';
 
-import { Icon, Optional, Root } from './style';
+import { Icon, Required, Root } from './style';
 import { Props } from './type';
 
 export const LabelField: FC<Props> = ({
   children,
   className,
   elementId,
-  icon = <FiInfo />,
-  iconText,
-  isOptional,
-  optionalText = '(opcional)',
+  required,
+  requiredDescription = '(opcional)',
   size,
+  tooltipDescription,
+  tooltipIcon = <FiInfo />,
 }) => (
   <Root className={className} htmlFor={elementId} size={size}>
     {children}
-    {isOptional ? <Optional>{optionalText}</Optional> : null}
-    {icon && iconText ? (
+    {!required && <Required>{requiredDescription}</Required>}
+    {tooltipIcon && tooltipDescription && (
       <Icon>
-        <Tooltip description={iconText}>{icon}</Tooltip>
+        <Tooltip description={tooltipDescription}>{tooltipIcon}</Tooltip>
       </Icon>
-    ) : null}
+    )}
   </Root>
 );

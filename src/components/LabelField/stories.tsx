@@ -9,9 +9,9 @@ import { Props } from './type';
 export default {
   argTypes: {
     icon: { control: { disable: true } },
-    iconText: { control: { type: 'text' } },
     isOptional: { defaultValue: false },
     size: { defaultValue: 'medium' },
+    tooltipDescription: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
   },
   component: LabelField,
@@ -32,8 +32,8 @@ Default.args = { ...defaultArgs };
 
 export const TooltipIcon = Template.bind({});
 
-TooltipIcon.args = { ...defaultArgs, iconText: faker.lorem.paragraph(2) };
+TooltipIcon.args = { ...defaultArgs, tooltipDescription: faker.lorem.paragraph(2) };
 
-export const Optional = Template.bind({});
+export const Required = Template.bind({});
 
-Optional.args = { ...defaultArgs, isOptional: true };
+Required.args = { ...defaultArgs, required: true };

@@ -36,24 +36,28 @@ Default.args = {
 };
 
 export const Primary = Template.bind({});
+
 Primary.args = {
   ...defaultArgs,
   color: 'primary',
 };
 
 export const Secondary = Template.bind({});
+
 Secondary.args = {
   ...defaultArgs,
   color: 'secondary',
 };
 
 export const White = Template.bind({});
+
 White.args = {
   ...defaultArgs,
   color: 'white',
 };
 
 export const OverflowScroll = Template.bind({});
+
 OverflowScroll.args = {
   ...defaultArgs,
   description: faker.lorem.paragraph(8),

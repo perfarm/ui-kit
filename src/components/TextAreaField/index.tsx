@@ -17,7 +17,7 @@ export const TextAreaField: FC<Props> = (props) => {
         name={props.name}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        required={props.isRequired}
+        required={props.required}
         rows={props.rows}
         size={props.size}
         value={props.value}

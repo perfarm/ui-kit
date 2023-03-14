@@ -13,7 +13,7 @@ export const Icon = styled('span', {
   marginLeft: '$3',
 });
 
-export const Optional = styled('span', {
+export const Required = styled('span', {
   color: '$gray400',
   marginLeft: '$3',
 });

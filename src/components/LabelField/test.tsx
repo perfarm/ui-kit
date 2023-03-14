@@ -8,12 +8,12 @@ import { LabelField } from '.';
 
 const mockRandomValues = () => {
   const label = faker.name.prefix();
-  const iconText = faker.lorem.paragraph(2);
-  const optionalText = faker.lorem.word(1);
+  const tooltipDescription = faker.lorem.paragraph(2);
+  const requiredDescription = faker.lorem.word(1);
   const childrenText = faker.lorem.words(3);
   const elementId = faker.lorem.words(1);
 
-  return { childrenText, elementId, iconText, label, optionalText };
+  return { childrenText, elementId, label, requiredDescription, tooltipDescription };
 };
 
 describe('LabelField', () => {
@@ -25,9 +25,9 @@ describe('LabelField', () => {
   });
 
   test('should show childrenText when click in elementIcon', async () => {
-    const { childrenText, elementId, iconText } = mockRandomValues();
+    const { childrenText, elementId, tooltipDescription } = mockRandomValues();
     render(
-      <LabelField elementId={elementId} iconText={iconText}>
+      <LabelField elementId={elementId} tooltipDescription={tooltipDescription}>
         {childrenText}
       </LabelField>
     );
@@ -41,14 +41,14 @@ describe('LabelField', () => {
     expect(elementIcon).toHaveAttribute('data-state', 'instant-open');
   });
 
-  test('should show OptionalText when isOptional true', async () => {
-    const { childrenText, elementId, optionalText } = mockRandomValues();
+  test('should show requiredDescription when required true', async () => {
+    const { childrenText, elementId, requiredDescription } = mockRandomValues();
     render(
-      <LabelField elementId={elementId} isOptional optionalText={optionalText}>
+      <LabelField elementId={elementId} required requiredDescription={requiredDescription}>
         {childrenText}
       </LabelField>
     );
 
-    expect(screen.queryByText(optionalText)).toBeTruthy();
+    expect(screen.queryByText(requiredDescription)).toBeTruthy();
   });
 });

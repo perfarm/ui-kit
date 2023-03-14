@@ -9,6 +9,7 @@ import { Props } from './type';
 export default {
   argTypes: {
     icon: { control: { type: 'text' } },
+    size: { defaultValue: 'medium' },
     value: { control: { type: 'text' } },
   },
   component: TextField,
@@ -17,12 +18,13 @@ export default {
 
 const defaultArgs: Props = {
   disabled: false,
-  errorText: 'Text example of field error',
+  errorDescription: 'Text example of field error',
   hasError: false,
   label: 'Label',
   name: '',
   onChange: () => {},
   placeholder: 'Insert text here',
+  required: false,
   value: 'Input value',
 };
 
@@ -86,12 +88,12 @@ export const TooltipInfo = Template.bind({});
 
 TooltipInfo.args = {
   ...defaultArgs,
-  infoText: faker.lorem.paragraph(2),
+  infoDescription: faker.lorem.paragraph(2),
 };
 
 export const Required = Template.bind({});
 
 Required.args = {
   ...defaultArgs,
-  isRequired: true,
+  required: true,
 };

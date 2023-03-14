@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
-import { LabelField } from '../LabelField';
+import { LabelField } from '~/components/LabelField';
+
 import { Content, Error, Icon, InputContent, Root } from './style';
 import { Props } from './type';
 
@@ -9,33 +10,33 @@ export const InputRoot: FC<Props> = ({
   className,
   disabled,
   elementId = 'input',
-  errorText,
+  errorDescription,
   hasError = false,
   icon,
-  infoText,
-  isRequired = false,
+  infoDescription,
   label,
+  required = false,
   size,
 }) => (
   <Root className={className} size={size}>
-    {label ? (
-      <LabelField elementId={elementId} iconText={infoText} isOptional={!isRequired}>
+    {label && (
+      <LabelField elementId={elementId} required={required} size={size} tooltipDescription={infoDescription}>
         {label}
       </LabelField>
-    ) : null}
+    )}
     <Content>
       <InputContent disabled={disabled} hasError={hasError}>
         {children}
-        {icon ? (
+        {icon && (
           <Icon htmlFor={elementId} size={size}>
             {icon}
           </Icon>
-        ) : null}
+        )}
       </InputContent>
 
-      {hasError && !!errorText?.length && (
+      {hasError && !!errorDescription?.length && (
         <Error htmlFor={elementId} id={`${elementId}-error`}>
-          {errorText}
+          {errorDescription}
         </Error>
       )}
     </Content>

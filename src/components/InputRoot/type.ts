@@ -6,12 +6,12 @@ export interface OwnProps {
   className?: string;
   disabled?: boolean;
   elementId?: string;
-  errorText?: string;
+  errorDescription?: string;
   hasError?: boolean;
   icon?: string | JSX.Element;
-  infoText?: string;
-  isRequired?: boolean;
+  infoDescription?: string;
   label?: string;
+  required?: boolean;
   size?: CommonSize;
 }
 
