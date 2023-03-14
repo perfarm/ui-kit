@@ -11,11 +11,11 @@ const mockRandomValues = () => {
   const label = faker.name.prefix();
   const tagName = faker.name.suffix();
   const icon = faker.name.jobArea();
-  const errorText = faker.lorem.words(6);
+  const errorDescription = faker.lorem.words(6);
   const value = faker.name.fullName();
   const valueChanged = faker.name.fullName();
 
-  return { errorText, icon, label, mockFn, tagName, value, valueChanged };
+  return { errorDescription, icon, label, mockFn, tagName, value, valueChanged };
 };
 
 describe('TextAreaField', () => {
@@ -63,10 +63,10 @@ describe('TextAreaField', () => {
   });
 
   test('should show error element and message', () => {
-    const { errorText, mockFn, tagName, value } = mockRandomValues();
+    const { errorDescription, mockFn, tagName, value } = mockRandomValues();
     render(
       <TextAreaField
-        errorText={errorText}
+        errorDescription={errorDescription}
         hasError
         name={tagName}
         onChange={(e) => mockFn(e.target.value)}
@@ -74,19 +74,24 @@ describe('TextAreaField', () => {
       />
     );
 
-    expect(screen.queryByText(errorText)).toBeInTheDocument();
+    expect(screen.queryByText(errorDescription)).toBeInTheDocument();
   });
 
-  test('should not show error message when error is false and have errorText', () => {
-    const { errorText, mockFn, tagName, value } = mockRandomValues();
+  test('should not show error message when error is false and have errorDescription', () => {
+    const { errorDescription, mockFn, tagName, value } = mockRandomValues();
     render(
-      <TextAreaField errorText={errorText} name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />
+      <TextAreaField
+        errorDescription={errorDescription}
+        name={tagName}
+        onChange={(e) => mockFn(e.target.value)}
+        value={value}
+      />
     );
 
-    expect(screen.queryByText(errorText)).not.toBeInTheDocument();
+    expect(screen.queryByText(errorDescription)).not.toBeInTheDocument();
   });
 
-  test('should not show errorElement when hasError is true and errorText is empty', () => {
+  test('should not show errorElement when hasError is true and errorDescription is empty', () => {
     const { mockFn, tagName, value } = mockRandomValues();
     render(<TextAreaField hasError name={tagName} onChange={(e) => mockFn(e.target.value)} value={value} />);
 

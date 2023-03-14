@@ -7,7 +7,6 @@ export interface OwnProps {
   name: string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
   placeholder?: string;
-  required?: boolean;
   rows?: number;
   value?: string;
 }

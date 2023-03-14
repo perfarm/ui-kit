@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 
-import { Content, Error, Icon, InputContent, Label, Root } from './style';
+import { LabelField } from '~/components/LabelField';
+
+import { Content, Error, Icon, InputContent, Root } from './style';
 import { Props } from './type';
 
 export const InputRoot: FC<Props> = ({
@@ -8,27 +10,33 @@ export const InputRoot: FC<Props> = ({
   className,
   disabled,
   elementId = 'input',
-  errorText,
-  hasError,
+  errorDescription,
+  hasError = false,
   icon,
+  infoDescription,
   label,
+  required = false,
   size,
 }) => (
   <Root className={className} size={size}>
-    {label ? <Label htmlFor={elementId}>{label}</Label> : null}
+    {label && (
+      <LabelField elementId={elementId} required={required} size={size} tooltipDescription={infoDescription}>
+        {label}
+      </LabelField>
+    )}
     <Content>
       <InputContent disabled={disabled} hasError={hasError}>
         {children}
-        {icon ? (
+        {icon && (
           <Icon htmlFor={elementId} size={size}>
             {icon}
           </Icon>
-        ) : null}
+        )}
       </InputContent>
 
-      {hasError && !!errorText?.length && (
+      {hasError && !!errorDescription?.length && (
         <Error htmlFor={elementId} id={`${elementId}-error`}>
-          {errorText}
+          {errorDescription}
         </Error>
       )}
     </Content>

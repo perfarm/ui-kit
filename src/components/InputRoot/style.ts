@@ -1,48 +1,7 @@
 import { keyframes } from '@stitches/react';
 
-import { css, styled } from '~/config/theme';
-
-export const variantFontSize = css({
-  defaultVariants: {
-    size: 'medium',
-  },
-  variants: {
-    size: {
-      large: {
-        fontSize: '$6',
-      },
-      medium: {
-        fontSize: '$4',
-      },
-      small: {
-        fontSize: '$2',
-      },
-    },
-  },
-});
-
-export const variantPadding = css({
-  defaultVariants: {
-    size: 'medium',
-  },
-  variants: {
-    size: {
-      large: {
-        padding: '$4',
-      },
-      medium: {
-        padding: '$3',
-      },
-      small: {
-        padding: '$2',
-      },
-    },
-  },
-});
-
-export const Label = styled('label', {
-  marginBottom: '$1',
-});
+import { variantFontSize, variantPadding } from '~/commons/variants/sizes';
+import { styled } from '~/config/theme';
 
 export const Content = styled('div', {
   position: 'relative',
@@ -56,10 +15,8 @@ export const InputContent = styled('div', {
   display: 'flex',
   justifyContent: 'space-between',
   outline: '2px solid transparent',
-  overflow: 'hidden',
   position: 'relative',
   transition: '$easeInOut02',
-  zIndex: 9,
 
   '&:hover, &:focus-within': {
     outlineColor: '$primary200',
@@ -82,7 +39,7 @@ export const InputContent = styled('div', {
       true: {
         border: '1px solid $error200',
 
-        '&:hover,&:focus-within': {
+        '&:hover, &:focus-within': {
           outlineColor: '$error200',
         },
       },
@@ -129,7 +86,7 @@ export const Error = styled('label', {
   top: '0',
   visibility: 'hidden',
   width: '100%',
-  zIndex: 0,
+  zIndex: -1,
 });
 
 export const Root = styled('div', variantFontSize, {

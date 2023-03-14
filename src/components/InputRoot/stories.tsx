@@ -9,6 +9,7 @@ import { Props } from './type';
 export default {
   argTypes: {
     icon: { control: { type: 'text' } },
+    size: { defaultValue: 'medium' },
     value: { control: { type: 'text' } },
   },
   component: InputRoot,
@@ -16,9 +17,9 @@ export default {
 } as ComponentMeta<typeof InputRoot>;
 
 const defaultArgs: Props = {
-  children: <div>{faker.lorem.words(2)}</div>,
+  children: faker.lorem.words(2),
   disabled: false,
-  errorText: 'Text example of field error',
+  errorDescription: 'Text example of field error',
   hasError: false,
   label: 'Label',
 };
@@ -54,4 +55,17 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...defaultArgs,
   disabled: true,
+};
+export const Required = Template.bind({});
+
+Required.args = {
+  ...defaultArgs,
+  required: true,
+};
+
+export const Info = Template.bind({});
+
+Info.args = {
+  ...defaultArgs,
+  infoDescription: faker.lorem.paragraph(2),
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { RadioGroup } from '.';
@@ -21,7 +21,7 @@ describe('RadioGroup enabled', () => {
     expect(firstItemLabel).toBeInTheDocument();
   });
 
-  test('calls onChange prop when clicked on a not selected item', () => {
+  test('calls onChange prop when clicked on a not selected item', async () => {
     const items = [
       { label: 'Item 1', value: '1' },
       { label: 'Item 2', value: '2' },
@@ -33,7 +33,9 @@ describe('RadioGroup enabled', () => {
 
     const secondItemLabel = screen.getByText(items[1].label);
 
-    userEvent.click(secondItemLabel);
+    await act(async () => {
+      userEvent.click(secondItemLabel);
+    });
 
     expect(handleValueChange).toBeCalledTimes(1);
   });

@@ -8,18 +8,18 @@ import userEvent from '@testing-library/user-event';
 import { Tooltip } from '.';
 
 const mockRandomValues = () => {
-  const textTrigger = faker.lorem.words(1);
+  const childrenTrigger = faker.lorem.words(1);
   const textDescription = faker.lorem.words(4);
 
-  return { textDescription, textTrigger };
+  return { childrenTrigger, textDescription };
 };
 
 describe('Tooltip', () => {
   test('should click textTrigger and show textDescription', async () => {
-    const { textDescription, textTrigger } = mockRandomValues();
-    render(<Tooltip description={textDescription}>{textTrigger}</Tooltip>);
+    const { childrenTrigger, textDescription } = mockRandomValues();
+    render(<Tooltip description={textDescription}>{childrenTrigger}</Tooltip>);
 
-    const elementTrigger = screen.getByText(textTrigger);
+    const elementTrigger = screen.getByText(childrenTrigger);
 
     expect(screen.queryAllByText(textDescription)).toHaveLength(0);
 
@@ -34,12 +34,12 @@ describe('Tooltip', () => {
   });
 
   test('should start opened when isOpen is true', async () => {
-    const { textDescription, textTrigger } = mockRandomValues();
+    const { childrenTrigger, textDescription } = mockRandomValues();
 
     await act(async () => {
       render(
         <Tooltip description={textDescription} isOpen>
-          {textTrigger}
+          {childrenTrigger}
         </Tooltip>
       );
     });

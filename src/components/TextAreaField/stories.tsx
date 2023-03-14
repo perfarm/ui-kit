@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { faker } from '@faker-js/faker';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TextAreaField } from './index';
@@ -8,6 +9,7 @@ import { Props } from './types';
 export default {
   argTypes: {
     icon: { control: { type: 'text' } },
+    size: { defaultValue: 'medium' },
     value: { control: { type: 'text' } },
   },
   component: TextAreaField,
@@ -16,7 +18,7 @@ export default {
 
 const defaultArgs: Props = {
   disabled: false,
-  errorText: 'Text example of field error',
+  errorDescription: 'Text example of field error',
   hasError: false,
   label: 'Label',
   name: '',
@@ -79,4 +81,18 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...defaultArgs,
   disabled: true,
+};
+
+export const TooltipInfo = Template.bind({});
+
+TooltipInfo.args = {
+  ...defaultArgs,
+  infoDescription: faker.lorem.paragraph(2),
+};
+
+export const Required = Template.bind({});
+
+Required.args = {
+  ...defaultArgs,
+  required: true,
 };

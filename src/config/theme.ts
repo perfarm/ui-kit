@@ -66,7 +66,6 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       6: '2.8rem',
       7: '3.2rem',
     },
-
     media: {
       lg: '(min-width: 1200px)',
       md: '(min-width: 900px)',
@@ -95,6 +94,13 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
     },
     transitions: {
       easeInOut02: 'all 0.2s ease-in-out',
+    },
+    zIndices: {
+      appBar: 1100,
+      drawer: 1200,
+      modal: 1300,
+      snackbar: 1400,
+      tooltip: 1500,
     },
   },
   utils: {

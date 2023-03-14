@@ -1,4 +1,4 @@
-import { variantFontSize } from '~/components/InputRoot/style';
+import { variantFontSize } from '~/commons/variants/sizes';
 import { styled } from '~/config/theme';
 
 export const TextArea = styled('textarea', variantFontSize, {

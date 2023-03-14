@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { faker } from '@faker-js/faker';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { NumberField } from './index';
@@ -17,13 +18,14 @@ export default {
 
 const defaultArgs: Props = {
   disabled: false,
-  errorText: 'Text example of field error',
+  errorDescription: 'Text example of field error',
   hasError: false,
   label: 'Label',
   maxLength: 2,
   name: '',
   onChange: () => {},
   placeholder: 'Insert only numbers here',
+  required: false,
   value: 123,
 };
 
@@ -81,4 +83,18 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...defaultArgs,
   disabled: true,
+};
+
+export const TooltipInfo = Template.bind({});
+
+TooltipInfo.args = {
+  ...defaultArgs,
+  infoDescription: faker.lorem.paragraph(2),
+};
+
+export const Required = Template.bind({});
+
+Required.args = {
+  ...defaultArgs,
+  required: true,
 };

@@ -9,12 +9,12 @@ const mockRandomValues = () => {
   const mockFn = jest.fn();
   const label = faker.name.prefix();
   const icon = faker.name.jobArea();
-  const errorText = faker.lorem.words(6);
+  const errorDescription = faker.lorem.words(6);
   const value = faker.name.fullName();
   const valueChanged = faker.name.fullName();
   const childrenText = faker.lorem.words(4);
 
-  return { childrenText, errorText, icon, label, mockFn, value, valueChanged };
+  return { childrenText, errorDescription, icon, label, mockFn, value, valueChanged };
 };
 
 describe('InputRoot', () => {
@@ -55,9 +55,9 @@ describe('InputRoot', () => {
   });
 
   test('should show error element and message', () => {
-    const { childrenText, errorText } = mockRandomValues();
+    const { childrenText, errorDescription } = mockRandomValues();
     render(
-      <InputRoot elementId="teste" errorText={errorText} hasError>
+      <InputRoot elementId="teste" errorDescription={errorDescription} hasError>
         <div>{childrenText}</div>
       </InputRoot>
     );
@@ -65,21 +65,21 @@ describe('InputRoot', () => {
     const errorElement = document.getElementById(`teste-error`) as HTMLInputElement;
 
     expect(errorElement).toBeInTheDocument();
-    expect(screen.queryByText(errorText)).toBeInTheDocument();
+    expect(screen.queryByText(errorDescription)).toBeInTheDocument();
   });
 
-  test('should not show error message when error is false and have errorText', () => {
-    const { childrenText, errorText } = mockRandomValues();
+  test('should not show error message when error is false and have errorDescription', () => {
+    const { childrenText, errorDescription } = mockRandomValues();
     render(
-      <InputRoot errorText={errorText}>
+      <InputRoot errorDescription={errorDescription}>
         <div>{childrenText}</div>
       </InputRoot>
     );
 
-    expect(screen.queryByText(errorText)).not.toBeInTheDocument();
+    expect(screen.queryByText(errorDescription)).not.toBeInTheDocument();
   });
 
-  test('should not show errorElement when hasError is true and errorText is empty', () => {
+  test('should not show errorElement when hasError is true and errorDescription is empty', () => {
     const { childrenText } = mockRandomValues();
     render(
       <InputRoot elementId="teste" hasError>
