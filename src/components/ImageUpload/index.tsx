@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useRef, useCallback } from 'react';
+import React, { ChangeEvent, FC, useRef, useCallback, Fragment } from 'react';
 
 import { Button } from '../Button';
 import { Input } from './style';
@@ -22,9 +22,9 @@ export const ImageUpload: FC<Props> = ({ buttonProps, setImageSrc }) => {
   }, []);
 
   return (
-    <>
+    <Fragment>
       <Button {...buttonProps} onClick={handleClick} />
       <Input accept="image/*" onChange={handleChange} ref={fileInputRef} role="input" type="file" />
-    </>
+    </Fragment>
   );
 };
