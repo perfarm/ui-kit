@@ -1,4 +1,4 @@
-import { ButtonSize } from '../Button/types';
+import { ButtonSize } from '~/components/Button/types';
 
 export interface Props {
   defaultValue: string;

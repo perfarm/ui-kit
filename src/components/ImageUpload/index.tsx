@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, Fragment, useCallback, useRef } from 'react';
 
-import { Button } from '../Button';
+import { Button } from '~/components/Button';
+
 import { ButtonsWrapper, Image, Input, Root } from './style';
 import { Props } from './types';
 
