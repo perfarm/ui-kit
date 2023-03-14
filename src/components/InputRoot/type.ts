@@ -9,6 +9,8 @@ export interface OwnProps {
   errorText?: string;
   hasError?: boolean;
   icon?: string | JSX.Element;
+  infoText?: string;
+  isRequired?: boolean;
   label?: string;
   size?: CommonSize;
 }

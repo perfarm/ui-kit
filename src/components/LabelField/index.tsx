@@ -13,7 +13,7 @@ export const LabelField: FC<Props> = ({
   icon = <FiInfo />,
   iconText,
   isOptional,
-  optionalText = 'opcional',
+  optionalText = '(opcional)',
   size,
 }) => (
   <Root className={className} htmlFor={elementId} size={size}>

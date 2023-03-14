@@ -29,7 +29,6 @@ export const TooltipPortal = styled(Portal, {
   display: 'flex',
   flex: 1,
   flexDirection: 'column',
-  position: 'relative',
 });
 
 const revealByOpacity = keyframes({

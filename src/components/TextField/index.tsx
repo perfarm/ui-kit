@@ -17,7 +17,7 @@ export const TextField: FC<Props> = (props) => {
         name={props.name}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        required={props.required}
+        required={props.isRequired}
         size={props.size}
         type={props.type}
         value={props.value}

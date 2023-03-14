@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { faker } from '@faker-js/faker';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { TextField } from './index';
@@ -79,4 +80,18 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...defaultArgs,
   disabled: true,
+};
+
+export const TooltipInfo = Template.bind({});
+
+TooltipInfo.args = {
+  ...defaultArgs,
+  infoText: faker.lorem.paragraph(2),
+};
+
+export const Required = Template.bind({});
+
+Required.args = {
+  ...defaultArgs,
+  isRequired: true,
 };

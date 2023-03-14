@@ -66,7 +66,6 @@ export const { config, createTheme, css, getCssText, globalCss, styled, theme } 
       6: '2.8rem',
       7: '3.2rem',
     },
-
     media: {
       lg: '(min-width: 1200px)',
       md: '(min-width: 900px)',

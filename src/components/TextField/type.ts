@@ -9,7 +9,6 @@ export interface OwnProps {
   name: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
-  required?: boolean;
   type?: InputType;
   value?: string | number;
 }
