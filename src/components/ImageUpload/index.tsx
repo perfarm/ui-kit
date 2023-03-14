@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useRef } from 'react';
+import React, { ChangeEvent, FC, useRef, useCallback } from 'react';
 
 import { Button } from '../Button';
 import { Input } from './style';
@@ -7,11 +7,11 @@ import { Props } from './types';
 export const ImageUpload: FC<Props> = ({ buttonProps, setImageSrc }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     fileInputRef.current.click();
-  };
+  }, [fileInputRef]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
 
     reader.addEventListener('load', (e) => {
@@ -19,7 +19,7 @@ export const ImageUpload: FC<Props> = ({ buttonProps, setImageSrc }) => {
     });
 
     reader.readAsDataURL(event.target.files[0]);
-  };
+  }, []);
 
   return (
     <>
